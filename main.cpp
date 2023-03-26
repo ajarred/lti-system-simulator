@@ -12,7 +12,7 @@ void displayHelp()
     << "  help               : show this help message\n"
     << "  system filename    : load LTI system coefficients from specified file\n"
     << "  signal filename    : load input signal from specified file\n"
-    << "  [number]           : input a single real number\n"
+    << "  [number]           : input a floating point number\n"
     << "  clear              : clear the console screen\n"
     << "  cls                : clear memory\n"
     << "  exit               : exit the program\n";
@@ -38,15 +38,13 @@ void clearMemory()
 
 void clearConsole() 
 {
-    // Clear console screen
     system("cls");
 }
 
-void inputNumber(double &input) 
+void inputNumber(double &number) 
 {
-    // Process input number as needed
-    // Display feedback to user
-    cout << "Input number: " << input << endl;
+    // Input number to system
+    cout << "Input number: " << number << '\n';
 }
 
 int main(int argc, char* argv[])
@@ -61,7 +59,7 @@ int main(int argc, char* argv[])
     ofstream logFile("ltisim-log.txt", ios::app);
     if (!logFile.is_open()) 
     {
-        cout << "Log file cannot be opened\n"
+        cerr << "Log file cannot be opened\n"
         << "Contents will not be logged" << endl;
     }
 
