@@ -8,7 +8,7 @@ using namespace std;
 
 void displayHelp() 
 {
-    cout << "Available commands:"
+    cout << "Available commands:\n"
     << "  help               : show this help message\n"
     << "  system filename    : load LTI system coefficients from specified file\n"
     << "  signal filename    : load input signal from specified file\n"
