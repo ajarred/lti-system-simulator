@@ -1,11 +1,116 @@
 #include "Signal.h"
 #include <iostream>
+#include <string>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
-int main()
+void displayHelp() 
 {
-    cout << "Type \"help\" for more information";
+    cout << "Available commands:"
+    << "  help               : show this help message\n"
+    << "  system filename    : load LTI system coefficients from specified file\n"
+    << "  signal filename    : load input signal from specified file\n"
+    << "  [number]           : input a single real number\n"
+    << "  clear              : clear the console screen\n"
+    << "  cls                : clear memory\n"
+    << "  exit               : exit the program\n";
+}
+
+void extractSystem(const string& filename) 
+{
+    // Extract coefficients of an LTI system from filename
+    cout << "Extracted LTI system from file: " << filename << '\n';
+}
+
+void extractSignal(const string& filename) 
+{
+    // Extract a signal from filename
+    cout << "Extracted input signal from file: " << filename << '\n';
+}
+
+void clearMemory()
+{
+    // Clear memory
+    cout << "Memory cleared\n";
+}
+
+void clearConsole() 
+{
+    // Clear console screen
+    system("cls");
+}
+
+void inputNumber(double &input) 
+{
+    // Process input number as needed
+    // Display feedback to user
+    cout << "Input number: " << input << endl;
+}
+
+int main(int argc, char* argv[])
+{
+    if (argc != 1) 
+    {
+        cerr << "Error: incorrect number of command line arguments\n"
+        << "Usage: " << argv[0] << endl;
+        return 1;
+    }
+
+    ofstream logFile("ltisim-log.txt", ios::app);
+    if (!logFile.is_open()) 
+    {
+        cout << "Log file cannot be opened\n"
+        << "Contents will not be logged" << endl;
+    }
+
+    cout << "LTI System Simulator\n"
+    << "Type \"help\" for more information\n";
+
+    while (true)
+    {
+        string userInput;
+        getline(cin, userInput);
+
+        if (userInput == "help") 
+        {
+            displayHelp();
+        } 
+        else if (userInput.substr(0, 6) == "system") 
+        {
+            extractSystem(userInput.substr(7));
+        } 
+        else if (userInput.substr(0, 6) == "signal") 
+        {
+            extractSignal(userInput.substr(7));
+        } 
+        else if (userInput == "clear")
+        {
+            clearMemory();
+        }
+        else if (userInput == "cls") 
+        {
+            clearConsole();
+        } 
+        else if (userInput == "exit") 
+        {
+            break;
+        } 
+        else 
+        {
+            double number;
+            stringstream ss(userInput);
+            if (!(ss >> number)) 
+            {
+                cout << "Invalid command. Type \"help\" for a list of commands\n";
+            }
+            else
+            {
+                inputNumber(number);
+            }
+        }
+    }
 
     return 0;
 }
