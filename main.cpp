@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    cout << "test\n" << endl;
-    Signal test("test.txt");
+    cout << "Type \"help\" for more information";
+
     return 0;
 }
