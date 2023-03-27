@@ -9,13 +9,13 @@ using namespace std;
 void displayHelp() 
 {
     cout << "Available commands:\n"
-    << "  help               : show this help message\n"
-    << "  system filename    : load LTI system coefficients from specified file\n"
-    << "  signal filename    : load input signal from specified file\n"
-    << "  [number]           : input a floating point number\n"
-    << "  clear              : clear the console screen\n"
-    << "  cls                : clear memory\n"
-    << "  exit               : exit the program\n";
+    << "help               : show this help message\n"
+    << "system filename    : load LTI system coefficients from specified file\n"
+    << "signal filename    : load input signal from specified file\n"
+    << "[number]           : input a floating point number\n"
+    << "clear              : clear previous inputs \n"
+    << "cls                : clear the console screen\n"
+    << "exit               : exit the program\n";
 }
 
 void extractSystem(const string& filename) 
