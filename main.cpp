@@ -3,8 +3,17 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
+#include <cctype>
 
 using namespace std;
+
+string to_lowercase(string str) 
+{
+    transform(str.begin(), str.end(), str.begin(), 
+    [](unsigned char c){ return tolower(c); });
+    return str;
+}
 
 void displayHelp() 
 {
@@ -70,6 +79,7 @@ int main(int argc, char* argv[])
     {
         string userInput;
         getline(cin, userInput);
+        userInput = to_lowercase(userInput);
 
         if (userInput == "help") 
         {
