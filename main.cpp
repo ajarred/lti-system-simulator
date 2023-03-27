@@ -92,6 +92,8 @@ int main(int argc, char* argv[])
 
     while (true)
     {
+        cout << "> ";
+        
         string userInput;
         getline(cin, userInput);
         userInput = to_lowercase(userInput);
