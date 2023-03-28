@@ -9,6 +9,10 @@
 using namespace std;
 
 /*
+class ltiSystem w/ extracting from file & computing output function
+*/
+
+/*
 compute_outputs ( double * acoef, double * bcoeff,
 double * inputs, double * outputs, int sizea, int sizeb,
 double * input_samples, int nSamples,
