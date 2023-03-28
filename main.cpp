@@ -92,7 +92,7 @@ int main(int argc, char* argv[])
 
     while (true)
     {
-        cout << "> ";
+        cout << "ltisim> ";
         
         string userInput;
         getline(cin, userInput);
