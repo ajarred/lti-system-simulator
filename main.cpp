@@ -1,4 +1,5 @@
 #include "Signal.h"
+#include "ltiSystem.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -27,6 +28,7 @@ int nSamples, double * output_samples);
 // of the ltiSystem class.
 */
 
+// filter user input
 string to_lowercase(string str) 
 {
     transform(str.begin(), str.end(), str.begin(), 
@@ -83,6 +85,11 @@ int main(int argc, char* argv[])
         << "Usage: " << argv[0] << endl;
         return 1;
     }
+
+    // test
+    Signal x("test.txt");
+    ltiSystem y;
+    y.compute_outputs();
 
     ofstream logFile("ltisim-log.txt", ios::app);
     if (!logFile.is_open()) 
