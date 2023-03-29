@@ -12,7 +12,7 @@ Signal::Signal()
 
 }
 
-Signal::Signal(const string &fileName)
+Signal::Signal(const std::string &fileName)
 {
     processFile(fileName);
 }
@@ -37,33 +37,33 @@ void Signal::setIndex(int newIndex)
     index = newIndex;
 }
 
-void Signal::processFile(const string &fileName)
+void Signal::processFile(const std::string &fileName)
 {
-    ifstream file;
-    string line;
+    std::ifstream file;
+    std::string line;
     double indexCheck;
     double data;
-    vector<double>signalVector;
+    std::vector<double> signalVector;
 
-    file.open (fileName, ios::in);
+    file.open(fileName, std::ios::in);
     if (!file)
     {
-        cerr << "Error: " << fileName
-        << " cannot be opened" << endl;
-        exit(1);
+        std::cerr << "Error: " << fileName
+        << " cannot be opened" << std::endl;
+        std::exit(1);
     }
-    cout << fileName << " is open\n";
+    std::cout << fileName << " is open\n";
 
-    getline(file,line);
-    stringstream ss(line);
+    std::getline(file, line);
+    std::stringstream ss(line);
 
     if (!(ss >> indexCheck))
     {
-        cerr << "Error: Invalid file signal" << endl;
-        exit(1);
+        std::cerr << "Error: Invalid file signal" << std::endl;
+        std::exit(1);
     }
 
-    if(floor(indexCheck)==indexCheck)
+    if(std::floor(indexCheck) == indexCheck)
     {
         if(!(ss >> data))
         {
@@ -84,11 +84,11 @@ void Signal::processFile(const string &fileName)
         signalVector.push_back(data);
     }
 
-    while (getline(file, line))
+    while (std::getline(file, line))
     {
         if (!line.empty())
         {
-            stringstream ss(line);
+            std::stringstream ss(line);
             while (ss >> data)
             {
                 signalVector.push_back(data);
@@ -103,11 +103,11 @@ void Signal::processFile(const string &fileName)
     file.close();
     duration = signalVector.size();
     signalArray = new double[duration];
-    copy(signalVector.begin(), signalVector.end(), signalArray);
+    std::copy(signalVector.begin(), signalVector.end(), signalArray);
 
-    cout << "Signal of duration " <<
+    std::cout << "Signal of duration " <<
     duration << " extracted from " <<
-    fileName << "\n\n";
+    fileName << "\n";
 }
 
 void Signal::destroySignalArray()
@@ -117,14 +117,14 @@ void Signal::destroySignalArray()
 
 void Signal::displaySignalContent()
 {
-    cout << "Index: " << index << '\n'
+    std::cout << "Index: " << index << '\n'
     << "Duration: " << duration << '\n';
-    if (duration<20)
+    if (duration < 20)
     {
         for (int i = 0; i < duration; i++)
         {
-            cout << signalArray[i] << '\n';
+            std::cout << signalArray[i] << '\n';
         }
     }
-    cout << '\n';
+    std::cout << '\n';
 }

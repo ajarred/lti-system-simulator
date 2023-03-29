@@ -1,10 +1,7 @@
 #ifndef SIGNAL_H
 #define SIGNAL_H
 #include <iostream>
-#include <vector>
 #include <string>
-
-using namespace std;
 
 class Signal
 {
@@ -16,7 +13,7 @@ class Signal
     public:
         Signal();
 
-        Signal(const string &fileName);
+        Signal(const std::string &fileName);
 
         double* getSignalArray();
 
@@ -26,7 +23,7 @@ class Signal
 
         void setIndex(int newIndex);
 
-        void processFile(const string &fileName);
+        void processFile(const std::string &fileName);
 
         void destroySignalArray();
 
