@@ -88,8 +88,7 @@ int main(int argc, char* argv[])
 
     // test
     Signal x("test.txt");
-    ltiSystem y;
-    y.compute_outputs();
+    ltiSystem y("lab5.system");
 
     ofstream logFile("ltisim-log.txt", ios::app);
     if (!logFile.is_open()) 
