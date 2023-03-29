@@ -15,6 +15,8 @@ class ltiSystem
 
         ltiSystem(const std::string &fileName);
 
+        void processFile(const std::string& fileName);
+
         void compute_outputs();
 };
 

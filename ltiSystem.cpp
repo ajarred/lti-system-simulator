@@ -18,6 +18,11 @@ ltiSystem::ltiSystem(const std::string &fileName)
     
 }
 
+void processFile(const std::string& fileName)
+{
+    
+}
+
 void ltiSystem::compute_outputs()
 {
     std::cout << "test\n";
