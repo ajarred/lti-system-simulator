@@ -87,7 +87,7 @@ void ltiSystem::processFile(const std::string& fileName)
     }
 
     // test
-    std::cout << "non-recursive coeff:" << integerCheck << '\n';
+    std::cout << "integercheck:" << integerCheck << '\n';
 
     if (integerCheck <= 0)
     {
