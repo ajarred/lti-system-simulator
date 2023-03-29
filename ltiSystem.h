@@ -6,9 +6,8 @@
 class ltiSystem
 {
     private:
-        double *signalArray;
-        int index = 0;
-        int duration = 0;
+        double* aCoeff; 
+        double* bCoeff;
 
     public:
         ltiSystem();
