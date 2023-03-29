@@ -50,7 +50,7 @@ void Signal::processFile(const std::string &fileName)
     {
         std::cerr << "Error: " << fileName
         << " cannot be opened" << std::endl;
-        std::exit(1);
+        return;
     }
     std::cout << fileName << " is open\n";
 
@@ -60,7 +60,7 @@ void Signal::processFile(const std::string &fileName)
     if (!(ss >> indexCheck))
     {
         std::cerr << "Error: Invalid file signal" << std::endl;
-        std::exit(1);
+        return;
     }
 
     if(std::floor(indexCheck) == indexCheck)
