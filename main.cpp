@@ -32,18 +32,29 @@ void displayHelp()
 void extractSystem(const string& filename) 
 {
     // Extract coefficients of an LTI system from filename
+    // If successful, LTI system will be simulated
+    // Replaces current system if a new one is validated
+    // Output "new system" to logfile
+    // Output "ready" to logfile
+    // Clear initial conditions to 0.0
     cout << "Extracted LTI system from file: " << filename << '\n';
 }
 
 void extractSignal(const string& filename) 
 {
     // Extract a signal from filename
+    // Signal serves as input (x) to LTI system, one sample at a time
+    // Ignore starting index
+    // Log each input-output (x,y) pair with \t 
+    // If duration < 10, print in console
+    // Else provide summary of number of inputs simulated
     cout << "Extracted input signal from file: " << filename << '\n';
 }
 
 void clearMemory()
 {
-    // Clear memory
+    // Clear memory of previous inputs & outputs to 0
+    // Log "clear"
     cout << "Memory cleared\n";
 }
 
@@ -54,7 +65,11 @@ void clearConsole()
 
 void inputNumber(double &number) 
 {
-    // Input number to system
+    // Print error if LTI system has been defined
+    // Input number as next input to system
+    // Next output is computed
+    // Print output to screen
+    // Log input-put with \t 
     cout << "Input number: " << number << '\n';
 }
 
