@@ -9,25 +9,6 @@
 
 using namespace std;
 
-/*
-class ltiSystem w/ extracting from file & computing output function
-*/
-
-/*
-compute_outputs ( double * acoef, double * bcoeff,
-double * inputs, double * outputs, int sizea, int sizeb,
-double * input_samples, int nSamples,
-double * output_samples);
-*/
-
-/*
-ltiSystem::compute_outputs ( double * input_samples,
-int nSamples, double * output_samples);
-// The LTI System arrays and their sizes would be
-// implied parameters accessible to all member functions
-// of the ltiSystem class.
-*/
-
 // filter user input
 string to_lowercase(string str) 
 {
@@ -140,10 +121,7 @@ int main(int argc, char* argv[])
             {
                 cout << "Invalid command. Type \"help\" for a list of commands\n";
             }
-            else
-            {
-                inputNumber(number);
-            }
+            inputNumber(number);
         }
     }
 
