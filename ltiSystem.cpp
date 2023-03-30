@@ -102,7 +102,6 @@ void ltiSystem::processFile(const std::string& fileName)
     std::cout << "non-recursive coeff:" << nonRecursiveCoefficient << '\n';
 
     aCoeff = new double[recursiveCoefficient+1];
-    double value;
 
     for (int i=0; i <= recursiveCoefficient; i++)
     {
@@ -114,6 +113,7 @@ void ltiSystem::processFile(const std::string& fileName)
         }
         
         std::stringstream ss(line);
+        double value;
         if (!(ss >> value))
         {
             std::cerr << "Error: Invalid system file\n"
@@ -124,6 +124,31 @@ void ltiSystem::processFile(const std::string& fileName)
 
         // test
         std::cout << "acoeff " << i << " " << aCoeff[i] << '\n';
+    }
+
+    bCoeff = new double[nonRecursiveCoefficient];
+
+    for (int i=0; i < nonRecursiveCoefficient; i++)
+    {
+        if (!std::getline(file, line))
+        {
+            std::cerr << "Error: Invalid system file\n"
+            "Not enough coefficients provided" << std::endl;
+            return;
+        }
+        
+        std::stringstream ss(line);
+        double value;
+        if (!(ss >> value))
+        {
+            std::cerr << "Error: Invalid system file\n"
+            "Coefficient must be a double" << std::endl;
+            return;
+        }
+        bCoeff[i] = value;
+
+        // test
+        std::cout << "bcoeff " << i+1 << " " << bCoeff[i] << '\n';
     }
 
     file.close();
