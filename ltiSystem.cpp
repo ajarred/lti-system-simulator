@@ -2,11 +2,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
-#include <vector>
 #include <sstream>
 #include <cmath>
-#include <cstdlib>
 
 ltiSystem::ltiSystem()
 {
