@@ -58,11 +58,6 @@ void clearMemory()
     cout << "Memory cleared\n";
 }
 
-void clearConsole() 
-{
-    system("cls");
-}
-
 void inputNumber(double &number) 
 {
     // Print error if LTI system has been defined
@@ -122,7 +117,7 @@ int main(int argc, char* argv[])
         }
         else if (userInput == "cls") 
         {
-            clearConsole();
+            system("cls");
         } 
         else if (userInput == "exit") 
         {
