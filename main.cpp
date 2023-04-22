@@ -31,21 +31,17 @@ void displayHelp()
 
 void extractSystem(const string& filename, ltiSystem& newSystem, ofstream& logFile) 
 {
-    // Extract coefficients of an LTI system from filename
     ltiSystem tempSystem(filename);
-    // If successful, LTI system will be simulated
     if (!tempSystem.isValidSystem())
     {
         cout << "Failed to extract LTI system from file:" << filename << '\n';
         return;
     }
-    // Replaces current system if a new one is validated
     newSystem = tempSystem;
     cout << "valid system" << "\n";
     // logFile << "new system\n";
     // logFile << "ready\n";
     // Clear initial conditions to 0.0
-    // Display info if successful
     cout << "Extracted LTI system from file: " << filename << '\n';
 }
 
@@ -64,6 +60,7 @@ void clearMemory(ofstream& logFile)
 {
     // Clear memory of previous inputs & outputs to 0
     // logFile << "Memory cleared\n";
+    cout << "Memory cleared\n";
 }
 
 void inputNumber(double &number) 
