@@ -64,7 +64,7 @@ void inputNumber(double &number)
     // Input number as next input to system
     // Next output is computed
     // Print output to screen
-    // Log input-put with \t 
+    // Log input-output with \t 
     cout << "Input number: " << number << '\n';
 }
 
