@@ -155,7 +155,7 @@ void ltiSystem::processFile(const std::string& fileName)
     file.close();
 }
 
-void ltiSystem::compute_outputs()
+void ltiSystem::compute_outputs(double* input_samples,int nSamples, double* output_samples)
 {
     std::cout << "test\n";
 }

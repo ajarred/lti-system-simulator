@@ -12,9 +12,6 @@ class ltiSystem
         double* outputs;
         int sizea;
         int sizeb;
-        double* input_samples;
-        int nSamples;
-        double* output_samples;
 
     public:
         ltiSystem();
@@ -23,7 +20,7 @@ class ltiSystem
 
         void processFile(const std::string& fileName);
 
-        void compute_outputs();
+        void compute_outputs(double* input_samples,int nSamples,double* output_samples);
 };
 
 #endif 
