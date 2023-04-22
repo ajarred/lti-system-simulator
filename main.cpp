@@ -29,14 +29,20 @@ void displayHelp()
     << " exit             : exit the program\n";
 }
 
-void extractSystem(const string& filename) 
+void extractSystem(const string& filename, ltiSystem& newSystem) 
 {
     // Extract coefficients of an LTI system from filename
+    ltiSystem tempSystem(filename);
     // If successful, LTI system will be simulated
     // Replaces current system if a new one is validated
+
     // Output "new system" to logfile
+
     // Output "ready" to logfile
+
     // Clear initial conditions to 0.0
+
+    // Display info if successful
     cout << "Extracted LTI system from file: " << filename << '\n';
 }
 
@@ -77,9 +83,11 @@ int main(int argc, char* argv[])
         return 1;
     }
 
+    ltiSystem newSystem;
+
     // test
-    Signal x("test.txt");
-    ltiSystem y("lab5.system");
+    // Signal x("test.txt");
+    // ltiSystem y("lab5.system");
 
     ofstream logFile("ltisim-log.txt", ios::app);
     if (!logFile.is_open()) 
@@ -105,7 +113,7 @@ int main(int argc, char* argv[])
         } 
         else if (userInput.substr(0, 6) == "system") 
         {
-            extractSystem(userInput.substr(7));
+            extractSystem(userInput.substr(7), newSystem);
         } 
         else if (userInput.substr(0, 6) == "signal") 
         {
