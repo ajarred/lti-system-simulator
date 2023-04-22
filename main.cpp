@@ -34,21 +34,19 @@ void extractSystem(const string& filename, ltiSystem& newSystem)
     // Extract coefficients of an LTI system from filename
     ltiSystem tempSystem(filename);
     // If successful, LTI system will be simulated
-    if (tempSystem.isValidSystem())
-    {
-        // Replaces current system if a new one is validated
-        newSystem = tempSystem;
-        cout << "valid system" << "\n";
-        // Output "new system" to logfile
-        // Output "ready" to logfile
-        // Clear initial conditions to 0.0
-        // Display info if successful
-        cout << "Extracted LTI system from file: " << filename << '\n';
-    }
-    else 
+    if (!tempSystem.isValidSystem())
     {
         cout << "Failed to extract LTI system from file:" << filename << '\n';
+        return;
     }
+    // Replaces current system if a new one is validated
+    newSystem = tempSystem;
+    cout << "valid system" << "\n";
+    // Output "new system" to logfile
+    // Output "ready" to logfile
+    // Clear initial conditions to 0.0
+    // Display info if successful
+    cout << "Extracted LTI system from file: " << filename << '\n';
 }
 
 void extractSignal(const string& filename) 
