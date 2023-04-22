@@ -98,7 +98,9 @@ void ltiSystem::processFile(const std::string& fileName)
 
     std::cout << "non-recursive coeff:" << nonRecursiveCoefficient << '\n';
 
-    aCoeff = new double[recursiveCoefficient+1];
+    sizea = recursiveCoefficient+1;
+    std::cout << "sizea = " << sizea << '\n';
+    aCoeff = new double[sizea];
 
     for (int i=0; i <= recursiveCoefficient; i++)
     {
@@ -123,6 +125,8 @@ void ltiSystem::processFile(const std::string& fileName)
         std::cout << "acoeff " << i << " " << aCoeff[i] << '\n';
     }
 
+    sizeb = nonRecursiveCoefficient;
+    std::cout << "sizeb = " << sizeb << '\n';
     bCoeff = new double[nonRecursiveCoefficient];
 
     for (int i=0; i < nonRecursiveCoefficient; i++)
