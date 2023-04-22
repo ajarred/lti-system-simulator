@@ -8,6 +8,13 @@ class ltiSystem
     private:
         double* aCoeff; 
         double* bCoeff;
+        double* inputs;
+        double* outputs;
+        int sizea;
+        int sizeb;
+        double* input_samples;
+        int nSamples;
+        double* output_samples;
 
     public:
         ltiSystem();
