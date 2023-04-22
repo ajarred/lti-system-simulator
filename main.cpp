@@ -29,7 +29,7 @@ void displayHelp()
     << " exit             : exit the program\n";
 }
 
-void extractSystem(const string& filename, ltiSystem& newSystem) 
+void extractSystem(const string& filename, ltiSystem& newSystem, ofstream& logFile) 
 {
     // Extract coefficients of an LTI system from filename
     ltiSystem tempSystem(filename);
@@ -43,7 +43,9 @@ void extractSystem(const string& filename, ltiSystem& newSystem)
     newSystem = tempSystem;
     cout << "valid system" << "\n";
     // Output "new system" to logfile
+    // logFile << "new system\n";
     // Output "ready" to logfile
+    // logFile << "ready\n";
     // Clear initial conditions to 0.0
     // Display info if successful
     cout << "Extracted LTI system from file: " << filename << '\n';
@@ -116,7 +118,7 @@ int main(int argc, char* argv[])
         } 
         else if (userInput.substr(0, 6) == "system") 
         {
-            extractSystem(userInput.substr(7), newSystem);
+            extractSystem(userInput.substr(7), newSystem, logFile);
         } 
         else if (userInput.substr(0, 6) == "signal") 
         {
