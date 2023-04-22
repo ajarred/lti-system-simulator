@@ -159,3 +159,23 @@ void ltiSystem::compute_outputs(double* input_samples,int nSamples, double* outp
 {
     std::cout << "test\n";
 }
+
+bool ltiSystem::isValidSystem() 
+{
+    if (aCoeff == nullptr || bCoeff == nullptr) 
+    {
+        return false;
+    }
+
+    if (sizea <= 0 || sizeb <= 0) 
+    {
+        return false;
+    }
+
+    if (aCoeff[0] == 0.0) 
+    {
+        return false;
+    }
+
+    return true;
+}
