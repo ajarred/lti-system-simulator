@@ -42,9 +42,7 @@ void extractSystem(const string& filename, ltiSystem& newSystem, ofstream& logFi
     // Replaces current system if a new one is validated
     newSystem = tempSystem;
     cout << "valid system" << "\n";
-    // Output "new system" to logfile
     // logFile << "new system\n";
-    // Output "ready" to logfile
     // logFile << "ready\n";
     // Clear initial conditions to 0.0
     // Display info if successful
@@ -62,11 +60,10 @@ void extractSignal(const string& filename)
     cout << "Extracted input signal from file: " << filename << '\n';
 }
 
-void clearMemory()
+void clearMemory(ofstream& logFile)
 {
     // Clear memory of previous inputs & outputs to 0
-    // Log "clear"
-    cout << "Memory cleared\n";
+    // logFile << "Memory cleared\n";
 }
 
 void inputNumber(double &number) 
@@ -126,7 +123,7 @@ int main(int argc, char* argv[])
         } 
         else if (userInput == "clear")
         {
-            clearMemory();
+            clearMemory(logFile);
         }
         else if (userInput == "cls") 
         {
