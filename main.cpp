@@ -154,6 +154,7 @@ void ltiSystemSimulator()
             if (!(ss >> number)) 
             {
                 cout << "Invalid command. Type \"help\" for a list of commands\n";
+                continue;
             }
             inputNumber(number,newSystem,logFile);
         }
