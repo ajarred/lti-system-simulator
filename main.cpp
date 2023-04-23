@@ -100,13 +100,12 @@ void ltiSystemSimulator()
     ltiSystem newSystem;
 
     ofstream logFile("ltisim-log.txt", ios::app);
+    ostream& outStream = logFile.is_open() ? logFile : cout;
     if (!logFile.is_open()) 
     {
         cerr << "Log file cannot be opened\n"
         << "Contents will not be logged" << endl;
-        ostream& outStream = logFile;
     }
-    ostream& outStream = cout;
 
     cout << "LTI System Simulator\n" << 
     "Type \"help\" for more information\n";
