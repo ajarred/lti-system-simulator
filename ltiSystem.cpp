@@ -49,8 +49,7 @@ void ltiSystem::processFile(const std::string& fileName)
         return;
     }
 
-    // test
-    std::cout << "integercheck:" << integerCheck << '\n';
+    // std::cout << "integercheck:" << integerCheck << '\n';
 
     if (integerCheck <= 1)
     {
@@ -63,7 +62,7 @@ void ltiSystem::processFile(const std::string& fileName)
     nonRecursiveCoefficient = integerCheck;
     nonRecursiveCoefficient -= 1;
 
-    std::cout << "non-recursive coeff:" << nonRecursiveCoefficient << '\n';
+    // std::cout << "non-recursive coeff:" << nonRecursiveCoefficient << '\n';
 
     std::getline(file, line);
     ss.clear();
@@ -83,8 +82,7 @@ void ltiSystem::processFile(const std::string& fileName)
         return;
     }
 
-    // test
-    std::cout << "integercheck:" << integerCheck << '\n';
+    // std::cout << "integercheck:" << integerCheck << '\n';
 
     if (integerCheck <= 0)
     {
@@ -96,10 +94,10 @@ void ltiSystem::processFile(const std::string& fileName)
 
     recursiveCoefficient = integerCheck;
 
-    std::cout << "recursive coeff:" << recursiveCoefficient << '\n';
+    // std::cout << "recursive coeff:" << recursiveCoefficient << '\n';
 
     sizeb = nonRecursiveCoefficient+1;
-    std::cout << "sizeb = " << sizeb << '\n';
+    // std::cout << "sizeb = " << sizeb << '\n';
     bCoeff = new double[sizeb];
 
     for (int i=0; i<sizeb; i++)
@@ -121,12 +119,11 @@ void ltiSystem::processFile(const std::string& fileName)
         }
         bCoeff[i] = value;
 
-        // test
-        std::cout << "bcoeff " << i << " " << bCoeff[i] << '\n';
+        // std::cout << "bcoeff " << i << " " << bCoeff[i] << '\n';
     }
 
     sizea = recursiveCoefficient;
-    std::cout << "sizea = " << sizea << '\n';
+    // std::cout << "sizea = " << sizea << '\n';
     aCoeff = new double[sizea];
 
     for (int i=0; i<sizea; i++)
@@ -148,8 +145,7 @@ void ltiSystem::processFile(const std::string& fileName)
         }
         aCoeff[i] = value;
 
-        // test
-        std::cout << "acoeff " << i+1 << " " << aCoeff[i] << '\n';
+        // std::cout << "acoeff " << i+1 << " " << aCoeff[i] << '\n';
     }
     file.close();
 }
@@ -212,12 +208,12 @@ void ltiSystem::initializeSystem()
     for (int i=0; i<sizeb; i++)
     {
         inputs[i] = 0;
-        std::cout << "x(n" << i-2 << ") = " << inputs[i] << '\n';
+        // std::cout << "x(n" << i-2 << ") = " << inputs[i] << '\n';
     }
     for (int i=0; i<sizea; i++)
     {
         outputs[i] = 0;
-        std::cout << "y(n" << i-2 << ") = " << outputs[i] << '\n';
+        // std::cout << "y(n" << i-2 << ") = " << outputs[i] << '\n';
     }
 }
 
