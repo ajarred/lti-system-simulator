@@ -41,7 +41,6 @@ void extractSystem(const string& filename, ltiSystem& newSystem, ostream& outStr
     outStream << "new system\n";
     outStream << "ready\n";
     newSystem.initializeSystem();
-    cout << "Extracted LTI system from file: " << filename << '\n';
 }
 
 void extractSignal(const string& filename, ltiSystem& newSystem, ostream& outStream) 

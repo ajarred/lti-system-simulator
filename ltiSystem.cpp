@@ -54,7 +54,6 @@ void ltiSystem::processFile(const std::string& fileName)
         return;
     }
     nonRecursiveCoefficient = integerCheck;
-    nonRecursiveCoefficient -= 1;
 
     std::getline(file, line);
     ss.clear();
@@ -80,7 +79,7 @@ void ltiSystem::processFile(const std::string& fileName)
     }
     recursiveCoefficient = integerCheck;
 
-    sizeb = nonRecursiveCoefficient+1;
+    sizeb = nonRecursiveCoefficient;
     // std::cout << "sizeb = " << sizeb << '\n';
     bCoeff = new double[sizeb];
     for (int i=0; i<sizeb; i++)
@@ -126,6 +125,9 @@ void ltiSystem::processFile(const std::string& fileName)
         // std::cout << "acoeff " << i+1 << " " << aCoeff[i] << '\n';
     }
     file.close();
+    std::cout << "System obtained from " << fileName << '.'
+    << "recursive coeffs: " << recursiveCoefficient << ", "
+    << "nonrecursive coeffs: " << nonRecursiveCoefficient << '\n';
 }
 
 void ltiSystem::compute_outputs(double* input_samples, int nSamples, double* output_samples)
