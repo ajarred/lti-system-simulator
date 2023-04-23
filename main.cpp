@@ -162,12 +162,6 @@ void ltiSystemSimulator()
 
 int main(int argc, char* argv[])
 {
-    if (argc != 1) 
-    {
-        cerr << "Error: incorrect number of command line arguments\n"
-        << "Usage: " << argv[0] << endl;
-        return 1;
-    }
     ltiSystemSimulator();
     return 0;
 }
