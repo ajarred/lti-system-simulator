@@ -153,11 +153,37 @@ void ltiSystem::processFile(const std::string& fileName)
     }
     file.close();
 }
-
-void ltiSystem::compute_outputs(double* input_samples,int nSamples, double* output_samples)
+// void ltiSystem::compute_outputs(double* input_samples, int nSamples, double* output_samples)
+void ltiSystem::compute_outputs(double* input_samples, int nSamples, double* output_samples)
 {
-    
+    for (int n = 0; n < nSamples; n++) 
+    {
+        double inputNumber, bSumProduct = 0, aSumProduct = 0, computedOutput;
+        inputNumber = input_samples[n];
+        bSumProduct = bCoeff[0]*inputNumber;
+        for (int i=1; i<sizeb; i++)
+        {
+            bSumProduct += bCoeff[i]*inputs[i-1];
+        }
+        for (int i=0; i<sizea; i++)
+        {
+            aSumProduct += aCoeff[i]*outputs[i];
+        }
+        computedOutput = bSumProduct - aSumProduct;
+        for (int i=sizeb-1; i>=1; i--)
+        {
+            inputs[i] = inputs[i-1];
+        }
+        inputs[0] = inputNumber;
+        for (int i=sizea-1; i>=1; i--)
+        {
+            outputs[i] = outputs[i-1];
+        }
+        outputs[0] = computedOutput;
+        output_samples[n] = computedOutput;
+    }
 }
+
 
 bool ltiSystem::isValidSystem() 
 {
