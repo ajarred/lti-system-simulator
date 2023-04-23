@@ -41,7 +41,7 @@ void extractSystem(const string& filename, ltiSystem& newSystem, ofstream& logFi
     cout << "valid system" << "\n";
     // logFile << "new system\n";
     // logFile << "ready\n";
-    // Clear initial conditions to 0.0
+    newSystem.initializeSystem();
     cout << "Extracted LTI system from file: " << filename << '\n';
 }
 

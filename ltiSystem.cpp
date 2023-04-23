@@ -179,3 +179,16 @@ bool ltiSystem::isValidSystem()
 
     return true;
 }
+
+void ltiSystem::initializeSystem()
+{
+    inputs = new double[sizea-1];
+    outputs = new double[sizea-1];
+    for (int i=0; i<sizea-1; i++)
+    {
+        inputs[i] = 0;
+        std::cout << "x(n" << i-2 << ") = " << inputs[i] << '\n';
+        outputs[i] = 0;
+        std::cout << "y(n" << i-2 << ") = " << outputs[i] << '\n';
+    }
+}
