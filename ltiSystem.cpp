@@ -186,12 +186,10 @@ void ltiSystem::initializeSystem()
     for (int i=0; i<sizeb; i++)
     {
         inputs[i] = 0;
-        // std::cout << "x(n" << i-2 << ") = " << inputs[i] << '\n';
     }
     for (int i=0; i<sizea; i++)
     {
         outputs[i] = 0;
-        // std::cout << "y(n" << i-2 << ") = " << outputs[i] << '\n';
     }
 }
 
