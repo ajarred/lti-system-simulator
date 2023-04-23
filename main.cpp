@@ -45,15 +45,28 @@ void extractSystem(const string& filename, ltiSystem& newSystem, ofstream& logFi
     cout << "Extracted LTI system from file: " << filename << '\n';
 }
 
-void extractSignal(const string& filename, ofstream& logFile) 
+void extractSignal(const string& filename, ltiSystem& newSystem, ofstream& logFile) 
 {
-    // Extract a signal from filename
     Signal inputSignal(filename);
-    // Signal serves as input (x) to LTI system, one sample at a time
-    // Ignore starting index
-    // Log each input-output (x,y) pair with \t 
-    // If duration < 10, print in console
-    // Else provide summary of number of inputs simulated
+    int duration = inputSignal.getDuration();
+    double* input_samples = inputSignal.getSignalArray();
+    double* output_samples = new double[duration];
+    newSystem.compute_outputs(input_samples,duration,output_samples);
+    for (int i=0; i<duration; i++)
+    {
+        // logFile << input_samples[i] << '\t' << output_samples[i] << '\n';
+    }
+    if (duration<10)
+    {
+        for (int i=0; i<duration; i++)
+        {
+            cout << input_samples[i] << '\t' << output_samples[i] << '\n';
+        }
+    }
+    else 
+    {
+        cout << duration << " inputs simulated\n";
+    }
 }
 
 void clearMemory(ofstream& logFile)
@@ -117,7 +130,7 @@ int main(int argc, char* argv[])
         } 
         else if (userInput.substr(0, 6) == "signal") 
         {
-            extractSignal(userInput.substr(7), logFile);
+            extractSignal(userInput.substr(7), newSystem, logFile);
         } 
         else if (userInput == "clear")
         {
