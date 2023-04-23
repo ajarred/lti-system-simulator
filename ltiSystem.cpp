@@ -126,7 +126,7 @@ void ltiSystem::processFile(const std::string& fileName)
     }
     file.close();
     std::cout << "System obtained from " << fileName << '.'
-    << "recursive coeffs: " << recursiveCoefficient << ", "
+    << " recursive coeffs: " << recursiveCoefficient << ", "
     << "nonrecursive coeffs: " << nonRecursiveCoefficient << '\n';
 }
 
