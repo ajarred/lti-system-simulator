@@ -76,6 +76,11 @@ void extractSignal(const string& filename, ltiSystem& newSystem, ofstream& logFi
 
 void clearMemory(ltiSystem& newSystem, ofstream& logFile)
 {
+    if (!newSystem.isValidSystem())
+    {
+        cout << "No LTI system defined. Please extract a system from a file first.\n";
+        return;
+    }
     newSystem.clearMemory();
     // logFile << "clear\n";
     cout << "Memory cleared\n";
