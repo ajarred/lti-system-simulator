@@ -30,4 +30,4 @@ class Signal
         void displaySignalContent();
 };
 
-#endif // SIGNAL_H
+#endif 
