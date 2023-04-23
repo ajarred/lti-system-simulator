@@ -47,6 +47,11 @@ void extractSystem(const string& filename, ltiSystem& newSystem, ofstream& logFi
 
 void extractSignal(const string& filename, ltiSystem& newSystem, ofstream& logFile) 
 {
+    if (!newSystem.isValidSystem())
+    {
+        cout << "No LTI system defined. Please extract a system from a file first.\n";
+        return;
+    }
     Signal inputSignal(filename);
     int duration = inputSignal.getDuration();
     double* input_samples = inputSignal.getSignalArray();
@@ -69,10 +74,10 @@ void extractSignal(const string& filename, ltiSystem& newSystem, ofstream& logFi
     }
 }
 
-void clearMemory(ofstream& logFile)
+void clearMemory(ltiSystem& newSystem, ofstream& logFile)
 {
-    // Clear memory of previous inputs & outputs to 0
-    // logFile << "Memory cleared\n";
+    newSystem.clearMemory();
+    // logFile << "clear\n";
     cout << "Memory cleared\n";
 }
 
@@ -134,7 +139,7 @@ int main(int argc, char* argv[])
         } 
         else if (userInput == "clear")
         {
-            clearMemory(logFile);
+            clearMemory(newSystem, logFile);
         }
         else if (userInput == "cls") 
         {
