@@ -70,11 +70,12 @@ void inputNumber(double &number, ltiSystem& newSystem, ofstream& logFile)
         cout << "No LTI system defined. Please extract a system from a file first.\n";
         return;
     }
-    // Input number as next input to system
-    // Next output is computed
-    // Print output to screen
-    // Log input-output with \t 
-    cout << "Input number: " << number << '\n';
+    double* input_samples = new double[1];
+    double* output_samples = new double[1];
+    input_samples[0] = number;
+    newSystem.compute_outputs(input_samples,1,output_samples);
+    cout << output_samples[0] << '\n';
+    // logFile << input_samples[0] << '\t' << output_samples[0] << '\n';
 }
 
 int main(int argc, char* argv[])
