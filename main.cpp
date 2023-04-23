@@ -90,9 +90,10 @@ void inputNumber(double &numberInput, ltiSystem& newSystem, ostream& outStream)
         cout << "No LTI system defined. Please extract a system from a file first.\n";
         return;
     }
-    double computedOutput = newSystem.compute_outputs(numberInput);
-    cout << computedOutput << '\n';
-    outStream << numberInput << '\t' << computedOutput << '\n';
+    double numberOutput;
+    newSystem.compute_outputs(numberInput,numberOutput);
+    cout << numberOutput << '\n';
+    outStream << numberInput << '\t' << numberOutput << '\n';
 }
 
 void ltiSystemSimulator()

@@ -130,7 +130,7 @@ void ltiSystem::processFile(const std::string& fileName)
     << "nonrecursive coeffs: " << nonRecursiveCoefficient << '\n';
 }
 
-double ltiSystem::compute_outputs(double inputNumber)
+void ltiSystem::compute_outputs(double inputNumber, double& outputNumber)
 {
     double bSumProduct = 0, aSumProduct = 0, computedOutput;
     bSumProduct = bCoeff[0]*inputNumber;
@@ -153,7 +153,7 @@ double ltiSystem::compute_outputs(double inputNumber)
         outputs[i] = outputs[i-1];
     }
     outputs[0] = computedOutput;
-    return computedOutput;
+    outputNumber = computedOutput;
 }
 
 void ltiSystem::compute_outputs(double* input_samples, int nSamples, double* output_samples)

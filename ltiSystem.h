@@ -20,7 +20,7 @@ class ltiSystem
 
         void processFile(const std::string& fileName);
 
-        double compute_outputs(double inputNumber);
+        void compute_outputs(double inputNumber, double &outputNumber);
 
         void compute_outputs(double* input_samples,int nSamples,double* output_samples);
 
