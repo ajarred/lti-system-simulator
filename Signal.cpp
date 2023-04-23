@@ -105,9 +105,8 @@ void Signal::processFile(const std::string &fileName)
     signalArray = new double[duration];
     std::copy(signalVector.begin(), signalVector.end(), signalArray);
 
-    std::cout << "Signal of duration " <<
-    duration << " extracted from " <<
-    fileName << "\n";
+    std::cout << "Signal obtained from " << fileName << '.' <<
+    "start index: " << index << ", duration: " << duration << '\n'; 
 }
 
 void Signal::destroySignalArray()
