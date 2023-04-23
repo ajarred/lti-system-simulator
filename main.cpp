@@ -38,7 +38,6 @@ void extractSystem(const string& filename, ltiSystem& newSystem, ostream& outStr
         return;
     }
     newSystem = tempSystem;
-    cout << "valid system" << "\n";
     outStream << "new system\n";
     outStream << "ready\n";
     newSystem.initializeSystem();
@@ -83,7 +82,6 @@ void clearMemory(ltiSystem& newSystem, ostream& outStream)
     }
     newSystem.clearMemory();
     outStream << "clear\n";
-    cout << "Memory cleared\n";
 }
 
 void inputNumber(double &number, ltiSystem& newSystem, ostream& outStream) 
