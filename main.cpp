@@ -107,9 +107,9 @@ void ltiSystemSimulator()
     {
         cerr << "Log file cannot be opened\n"
         << "Contents will not be logged" << endl;
+        ostream& outStream = logFile;
     }
-
-    ostream& outStream = logFile.is_open() ? logFile : cout;
+    ostream& outStream = cout;
 
     cout << "LTI System Simulator\n" << 
     "Type \"help\" for more information\n";
@@ -158,6 +158,7 @@ void ltiSystemSimulator()
             inputNumber(number,newSystem,logFile);
         }
     }
+    logFile.close();
 }
 
 int main(int argc, char* argv[])
