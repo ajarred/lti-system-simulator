@@ -46,7 +46,6 @@ void ltiSystem::processFile(const std::string& fileName)
         "Non-recursive coefficient must be an integer" << std::endl;
         return;
     }
-    // std::cout << "integercheck:" << integerCheck << '\n';
     if (integerCheck <= 1)
     {
         std::cerr << "Error: Invalid system file\n" 
@@ -56,7 +55,6 @@ void ltiSystem::processFile(const std::string& fileName)
     }
     nonRecursiveCoefficient = integerCheck;
     nonRecursiveCoefficient -= 1;
-    // std::cout << "non-recursive coeff:" << nonRecursiveCoefficient << '\n';
 
     std::getline(file, line);
     ss.clear();
@@ -73,7 +71,6 @@ void ltiSystem::processFile(const std::string& fileName)
         "Recursive coefficient must be an integer" << std::endl;
         return;
     }
-    // std::cout << "integercheck:" << integerCheck << '\n';
     if (integerCheck <= 0)
     {
         std::cerr << "Error: Invalid system file\n" 
@@ -82,7 +79,6 @@ void ltiSystem::processFile(const std::string& fileName)
         return;
     }
     recursiveCoefficient = integerCheck;
-    // std::cout << "recursive coeff:" << recursiveCoefficient << '\n';
 
     sizeb = nonRecursiveCoefficient+1;
     // std::cout << "sizeb = " << sizeb << '\n';
