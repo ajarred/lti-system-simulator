@@ -83,19 +83,16 @@ void clearMemory(ltiSystem& newSystem, ostream& outStream)
     outStream << "clear\n";
 }
 
-void inputNumber(double &number, ltiSystem& newSystem, ostream& outStream) 
+void inputNumber(double &numberInput, ltiSystem& newSystem, ostream& outStream) 
 {
     if (!newSystem.isValidSystem())
     {
         cout << "No LTI system defined. Please extract a system from a file first.\n";
         return;
     }
-    double* input_samples = new double[1];
-    double* output_samples = new double[1];
-    input_samples[0] = number;
-    newSystem.compute_outputs(input_samples,1,output_samples);
-    cout << output_samples[0] << '\n';
-    outStream << input_samples[0] << '\t' << output_samples[0] << '\n';
+    double computedOutput = newSystem.compute_outputs(numberInput);
+    cout << computedOutput << '\n';
+    outStream << numberInput << '\t' << computedOutput << '\n';
 }
 
 void ltiSystemSimulator()
