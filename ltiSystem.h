@@ -25,6 +25,8 @@ class ltiSystem
         bool isValidSystem();
 
         void initializeSystem();
+
+        void clearMemory();
 };
 
 #endif 

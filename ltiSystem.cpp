@@ -153,7 +153,7 @@ void ltiSystem::processFile(const std::string& fileName)
     }
     file.close();
 }
-// void ltiSystem::compute_outputs(double* input_samples, int nSamples, double* output_samples)
+
 void ltiSystem::compute_outputs(double* input_samples, int nSamples, double* output_samples)
 {
     for (int n = 0; n < nSamples; n++) 
@@ -218,5 +218,17 @@ void ltiSystem::initializeSystem()
     {
         outputs[i] = 0;
         std::cout << "y(n" << i-2 << ") = " << outputs[i] << '\n';
+    }
+}
+
+void ltiSystem::clearMemory()
+{
+    for (int i=0; i<sizeb; i++)
+    {
+        inputs[i]=0;
+    }
+    for (int i=0; i<sizea; i++)
+    {
+        outputs[i]=0;
     }
 }
