@@ -101,15 +101,8 @@ void inputNumber(double &number, ltiSystem& newSystem, ofstream& logFile)
     // logFile << input_samples[0] << '\t' << output_samples[0] << '\n';
 }
 
-int main(int argc, char* argv[])
+void ltiSystemSimulator()
 {
-    if (argc != 1) 
-    {
-        cerr << "Error: incorrect number of command line arguments\n"
-        << "Usage: " << argv[0] << endl;
-        return 1;
-    }
-
     ltiSystem newSystem;
 
     ofstream logFile("ltisim-log.txt", ios::app);
@@ -119,8 +112,8 @@ int main(int argc, char* argv[])
         << "Contents will not be logged" << endl;
     }
 
-    cout << "LTI System Simulator\n"
-    << "Type \"help\" for more information\n";
+    cout << "LTI System Simulator\n" << 
+    "Type \"help\" for more information\n";
 
     while (true)
     {
@@ -165,6 +158,16 @@ int main(int argc, char* argv[])
             inputNumber(number,newSystem,logFile);
         }
     }
+}
 
+int main(int argc, char* argv[])
+{
+    if (argc != 1) 
+    {
+        cerr << "Error: incorrect number of command line arguments\n"
+        << "Usage: " << argv[0] << endl;
+        return 1;
+    }
+    ltiSystemSimulator();
     return 0;
 }
