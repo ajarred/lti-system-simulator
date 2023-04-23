@@ -29,7 +29,7 @@ void displayHelp()
     << " exit             : exit the program\n";
 }
 
-void extractSystem(const string& filename, ltiSystem& newSystem, ofstream& logFile) 
+void extractSystem(const string& filename, ltiSystem& newSystem, ostream& outStream) 
 {
     ltiSystem tempSystem(filename);
     if (!tempSystem.isValidSystem())
@@ -39,13 +39,13 @@ void extractSystem(const string& filename, ltiSystem& newSystem, ofstream& logFi
     }
     newSystem = tempSystem;
     cout << "valid system" << "\n";
-    // logFile << "new system\n";
-    // logFile << "ready\n";
+    outStream << "new system\n";
+    outStream << "ready\n";
     newSystem.initializeSystem();
     cout << "Extracted LTI system from file: " << filename << '\n';
 }
 
-void extractSignal(const string& filename, ltiSystem& newSystem, ofstream& logFile) 
+void extractSignal(const string& filename, ltiSystem& newSystem, ostream& outStream) 
 {
     if (!newSystem.isValidSystem())
     {
@@ -59,7 +59,7 @@ void extractSignal(const string& filename, ltiSystem& newSystem, ofstream& logFi
     newSystem.compute_outputs(input_samples,duration,output_samples);
     for (int i=0; i<duration; i++)
     {
-        // logFile << input_samples[i] << '\t' << output_samples[i] << '\n';
+        outStream << input_samples[i] << '\t' << output_samples[i] << '\n';
     }
     if (duration<10)
     {
@@ -74,7 +74,7 @@ void extractSignal(const string& filename, ltiSystem& newSystem, ofstream& logFi
     }
 }
 
-void clearMemory(ltiSystem& newSystem, ofstream& logFile)
+void clearMemory(ltiSystem& newSystem, ostream& outStream)
 {
     if (!newSystem.isValidSystem())
     {
@@ -82,11 +82,11 @@ void clearMemory(ltiSystem& newSystem, ofstream& logFile)
         return;
     }
     newSystem.clearMemory();
-    // logFile << "clear\n";
+    outStream << "clear\n";
     cout << "Memory cleared\n";
 }
 
-void inputNumber(double &number, ltiSystem& newSystem, ofstream& logFile) 
+void inputNumber(double &number, ltiSystem& newSystem, ostream& outStream) 
 {
     if (!newSystem.isValidSystem())
     {
@@ -98,7 +98,7 @@ void inputNumber(double &number, ltiSystem& newSystem, ofstream& logFile)
     input_samples[0] = number;
     newSystem.compute_outputs(input_samples,1,output_samples);
     cout << output_samples[0] << '\n';
-    // logFile << input_samples[0] << '\t' << output_samples[0] << '\n';
+    outStream << input_samples[0] << '\t' << output_samples[0] << '\n';
 }
 
 void ltiSystemSimulator()
@@ -111,6 +111,8 @@ void ltiSystemSimulator()
         cerr << "Log file cannot be opened\n"
         << "Contents will not be logged" << endl;
     }
+
+    ostream& outStream = logFile.is_open() ? logFile : cout;
 
     cout << "LTI System Simulator\n" << 
     "Type \"help\" for more information\n";
