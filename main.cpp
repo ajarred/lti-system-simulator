@@ -63,9 +63,13 @@ void clearMemory(ofstream& logFile)
     cout << "Memory cleared\n";
 }
 
-void inputNumber(double &number) 
+void inputNumber(double &number, ltiSystem& newSystem, ofstream& logFile) 
 {
-    // Print error if LTI system has been defined
+    if (!newSystem.isValidSystem())
+    {
+        cout << "No LTI system defined. Please extract a system from a file first.\n";
+        return;
+    }
     // Input number as next input to system
     // Next output is computed
     // Print output to screen
@@ -138,7 +142,7 @@ int main(int argc, char* argv[])
             {
                 cout << "Invalid command. Type \"help\" for a list of commands\n";
             }
-            inputNumber(number);
+            inputNumber(number,newSystem,logFile);
         }
     }
 
