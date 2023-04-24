@@ -65,6 +65,8 @@ void extractSignal(const string& filename, ltiSystem& newSystem, ostream& outStr
     {
         cout << duration << " inputs simulated\n";
     }
+    delete[] input_samples;
+    delete[] output_samples;
 }
 
 void clearMemory(ltiSystem& newSystem, ostream& outStream)
