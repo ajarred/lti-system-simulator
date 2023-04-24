@@ -132,17 +132,17 @@ void ltiSystem::processFile(const std::string& fileName)
 
 void ltiSystem::compute_outputs(double inputNumber, double& outputNumber)
 {
-    double bSumProduct = 0, aSumProduct = 0, computedOutput;
-    bSumProduct = bCoeff[0]*inputNumber;
+    double bInputSumProduct = 0, aOutputSumProduct = 0, computedOutput;
+    bInputSumProduct = bCoeff[0]*inputNumber;
     for (int i=1; i<sizeb; i++)
     {
-        bSumProduct += bCoeff[i]*inputs[i-1];
+        bInputSumProduct += bCoeff[i]*inputs[i-1];
     }
     for (int i=0; i<sizea; i++)
     {
-        aSumProduct += aCoeff[i]*outputs[i];
+        aOutputSumProduct += aCoeff[i]*outputs[i];
     }
-    computedOutput = bSumProduct - aSumProduct;
+    computedOutput = bInputSumProduct - aOutputSumProduct;
     for (int i=sizeb-1; i>=1; i--)
     {
         inputs[i] = inputs[i-1];
