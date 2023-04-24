@@ -23,7 +23,7 @@ void displayHelp()
     << "help              : provide information how to use the program\n"
     << "system filename   : extract coefficients of an LTI system from filename\n"
     << "signal filename   : load input signal from filename\n"
-    << "[number]          : input a floating point number as next input of the system\n"
+    << "input a number    : input a floating point number as next input of the system\n"
     << "clear             : clear previous inputs and outputs of the system\n"
     << "cls               : clear the console screen\n"
     << "exit              : exit the program\n";
