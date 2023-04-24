@@ -20,7 +20,7 @@ string to_lowercase(string str)
 void displayHelp() 
 {
     cout << "Available commands:\n"
-    << "help              : provid information how to use the program\n"
+    << "help              : provide information how to use the program\n"
     << "system filename   : extract coefficients of an LTI system from filename\n"
     << "signal filename   : load input signal from filename\n"
     << "[number]          : input a floating point number as next input of the system\n"
