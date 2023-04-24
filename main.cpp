@@ -32,11 +32,6 @@ void displayHelp()
 void extractSystem(const string& filename, ltiSystem& newSystem, ostream& outStream) 
 {
     ltiSystem tempSystem(filename);
-    if (!tempSystem.isValidSystem())
-    {
-        cout << "Failed to extract LTI system from file:" << filename << '\n';
-        return;
-    }
     newSystem = tempSystem;
     outStream << "new system\n";
     outStream << "ready\n";
