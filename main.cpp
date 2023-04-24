@@ -115,7 +115,16 @@ void ltiSystemSimulator()
         string userInput;
         getline(cin, userInput);
         userInput = to_lowercase(userInput);
-
+        double number;
+        stringstream ss(userInput);
+        
+        if (!(ss >> number) && userInput != "help" && userInput.substr(0, 6) != "system" &&
+        userInput.substr(0, 6) != "signal" && userInput != "clear" && userInput != "cls" && 
+        userInput != "exit") 
+        {
+            cout << "Invalid command. Type \"help\" for a list of commands\n";
+            continue;
+        }
         if (userInput == "help") 
         {
             displayHelp();
@@ -142,13 +151,6 @@ void ltiSystemSimulator()
         } 
         else 
         {
-            double number;
-            stringstream ss(userInput);
-            if (!(ss >> number)) 
-            {
-                cout << "Invalid command. Type \"help\" for a list of commands\n";
-                continue;
-            }
             inputNumber(number,newSystem,logFile);
         }
     }
