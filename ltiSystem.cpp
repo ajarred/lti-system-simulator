@@ -50,7 +50,7 @@ void ltiSystem::processFile(const std::string& fileName)
     {
         std::cerr << "Error: Invalid system file\n" 
         "Non-recursive coefficient must be "
-        "greater than 0" << std::endl;
+        "greater than 1" << std::endl;
         return;
     }
     nonRecursiveCoefficient = integerCheck;
